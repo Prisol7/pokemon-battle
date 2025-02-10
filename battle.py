@@ -1,3 +1,8 @@
+#Add more pokemon --saturday
+#Let user choose pokemon --sunday
+#Allow team battles --monday
+
+
 class Pokemon:
 	#a class for pokemon
 	def __init__(self, name, health, attacks):
@@ -77,23 +82,154 @@ def display_health(pokemon1, pokemon2):
 
 
 
-def main():
-	pikachu_attacks = {
-	'thunderbolt': 30,
-	'volt tackle': 20,
-	'quick attack': 10,
-	'shock': 15
-	} 
+def teamBuilder():
+    pokemons = [
+    {
+        'name': 'Pikachu',
+        'attacks': {
+            'thunderbolt': 30,
+            'volt tackle': 20,
+            'quick attack': 10,
+            'shock': 15
+        }
+    },
+    {
+        'name': 'Bulbasaur',
+        'attacks': {
+            'vine whip': 35,
+            'razor leaf': 25,
+            'tackle': 15,
+            'growl': 10
+        }
+    },
+    {
+        'name': 'Charmander',
+        'attacks': {
+            'flamethrower': 35,
+            'ember': 25,
+            'scratch': 15,
+            'smokescreen': 10
+        }
+    },
+    {
+        'name': 'Squirtle',
+        'attacks': {
+            'water gun': 30,
+            'bubble beam': 20,
+            'tackle': 15,
+            'withdraw': 10
+        }
+    },
+    {
+        'name': 'Jigglypuff',
+        'attacks': {
+            'sing': 10,
+            'pound': 20,
+            'double slap': 15,
+            'body slam': 25
+        }
+    },
+    {
+        'name': 'Meowth',
+        'attacks': {
+            'scratch': 15,
+            'bite': 20,
+            'pay day': 25,
+            'fury swipes': 30
+        }
+    },
+    {
+        'name': 'Psyduck',
+        'attacks': {
+            'water pulse': 30,
+            'confusion': 25,
+            'scratch': 15,
+            'disable': 10
+        }
+    },
+    {
+        'name': 'Gengar',
+        'attacks': {
+            'shadow ball': 35,
+            'lick': 20,
+            'hypnosis': 10,
+            'dark pulse': 30
+        }
+    },
+    {
+        'name': 'Machop',
+        'attacks': {
+            'karate chop': 30,
+            'low kick': 25,
+            'seismic toss': 35,
+            'focus energy': 10
+        }
+    },
+    {
+        'name': 'Eevee',
+        'attacks': {
+            'quick attack': 20,
+            'bite': 25,
+            'tackle': 15,
+            'sand attack': 10
+        }
+    },
+    {
+        'name': 'Snorlax',
+        'attacks': {
+            'body slam': 40,
+            'hyper beam': 50,
+            'headbutt': 25,
+            'rest': 10
+        }
+    },
+    {
+        'name': 'Dragonite',
+        'attacks': {
+            'dragon claw': 40,
+            'wing attack': 30,
+            'thunder punch': 25,
+            'hyper beam': 50
+        }
+    }
+]
+    
+    for i in range(len(pokemons)):
+        print(f"{i+1}: {pokemons[i]['name']}")
+		
+    
+    team = []
+	
+    while len(team) < 6:
+        pokemon = int(input("Enter the number of the pokemon you want to add to your team: /or enter '9999' to finish"))
+        if pokemon == 9999:
+            break
+        
+        team.append(pokemons[pokemon])
+    return team
 
-	bulbasuar_attacks = {
-	'vine whip': 35,
-    'razor leaf': 25,
-    'tackle': 15,
-    'growl': 10,
-	}
-	pikachu = Pokemon('pikachu', 100, pikachu_attacks)
-	bulbasuar = Pokemon('bulbasuar', 120, bulbasuar_attacks)
-	battle(pikachu, bulbasuar)
+
+def main():
+    userTeam = teamBuilder()
+    for x in userTeam:
+        print(x)
+
+
+
+	#oppTeam = teamBuilder()
+	#battle(userTeam, oppTeam)
+	#for i in range(len(pokemons)):
+	#	print(f"{i+1}: {pokemons[i]['name']}")
+	#user = int(input("Enter the number of the pokemon you want to choose: "))
+	#opp = int(input("Enter the number of the pokemon you want to battle: "))
+
+	#if 1 <= user <= len(pokemons) and 1 <= opp <= len(pokemons):
+	#	user_pokemon = Pokemon(pokemons[user-1]['name'], 100, pokemons[user-1]['attacks'])
+	#	opp_pokemon = Pokemon(pokemons[opp-1]['name'], 100, pokemons[opp-1]['attacks'])
+
+
+	#battle(user_pokemon, opp_pokemon)
 
 if __name__ == "__main__":
+	
     main()
